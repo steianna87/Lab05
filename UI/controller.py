@@ -9,6 +9,8 @@ class Controller:
         self._model = model
 
     def handle_hello(self, e):
+        """Simple function to handle a button-pressed event,
+        and consequently print a message on screen"""
         name = self._view.txt_name.value
         if name is None or name == "":
             self._view.create_alert("Inserire il nome")

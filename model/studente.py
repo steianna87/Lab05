@@ -1,5 +1,3 @@
-import DB_connect
-
-class DAO():
+class Studente:
     def __init__(self):
         pass
