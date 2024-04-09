@@ -17,3 +17,6 @@ class Controller:
             return
         self._view.txt_result.controls.append(ft.Text(f"Hello, {name}!"))
         self._view.update_page()
+
+    def handle_iscritti(self):
+        pass
