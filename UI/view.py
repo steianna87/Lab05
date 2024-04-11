@@ -43,14 +43,14 @@ class View(ft.UserControl):
         # Row 2
         self.selezionaMatricola = ft.TextField(label='matricola')
         self.nomeStudente = ft.TextField(label='nome', read_only=True)
-        self.cognomeStudente = ft.TextField(label='cognnome', read_only=True)
+        self.cognomeStudente = ft.TextField(label='cognome', read_only=True)
         row2 = ft.Row([self.selezionaMatricola, self.nomeStudente, self.cognomeStudente],
                        alignment=ft.MainAxisAlignment.CENTER)
 
         # Row 3
-        self.cercaStudente_btn = ft.ElevatedButton(text='Cerca studente')
-        self.cercaCorsi_btn = ft.ElevatedButton(text='Cerca corsi')
-        self.iscrivi_btn = ft.ElevatedButton(text='Iscrivi')
+        self.cercaStudente_btn = ft.ElevatedButton(text='Cerca studente', on_click=self._controller.handle_studente)
+        self.cercaCorsi_btn = ft.ElevatedButton(text='Cerca corsi', on_click=self._controller.handle_corsi)
+        self.iscrivi_btn = ft.ElevatedButton(text='Iscrivi', on_click=self._controller.iscrivi)
         row3 = ft.Row([self.cercaStudente_btn, self.cercaCorsi_btn, self.iscrivi_btn],
                       alignment=ft.MainAxisAlignment.CENTER)
         '''
@@ -64,7 +64,10 @@ class View(ft.UserControl):
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
         self._page.controls.append(self.txt_result)
         '''
-        self._page.add(row1, row2, row3)
+        # Risultato
+        self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
+
+        self._page.add(row1, row2, row3, self.txt_result)
         self._page.update()
 
     @property

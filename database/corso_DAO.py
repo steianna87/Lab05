@@ -2,9 +2,11 @@
 
 from database.DB_connect import get_connection
 
+
 class CorsoDAO:
     def __init__(self):
         pass
+
     def get_methods(self):
         self._connessione = get_connection()
         self._cursore = self._connessione.cursor(dictionary=True)
@@ -21,6 +23,7 @@ class CorsoDAO:
 
         self._cursore.close()
         self._connessione.close()
+
 
 if __name__ == '__main__':
     stDao = CorsoDAO()
